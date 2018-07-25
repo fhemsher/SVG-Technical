@@ -1,0 +1,62 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="100%" height="100%" viewBox="-40 -505 660 550">
+ <title>Refrigeration PV diagram</title>
+ <desc>A fictitious pressure-volume diagram for a typical refrigeration cycle, drawn by CMG Lee based on img00469.gif on http://phy.ntnu.edu.tw/~chiact/thermo_ch6.htm .</desc>
+ <defs>
+  <path id="arrowhead" d="M -10,20 L 0,0 L 10,20"/>
+  <g id="arrow" stroke-width="10">
+   <use xlink:href="#arrowhead"/>
+   <path d="M 0,0 V 40"/>
+  </g>
+ </defs>
+ <g font-family="Arial,Helvetica,sans-serif" font-size="32" text-anchor="middle" stroke-linejoin="round" stroke-width="2" stroke="none" fill="none">
+  <circle cx="0" cy="0" r="9999" fill="#ffffff"/>
+  <g stroke="#000000">
+   <use xlink:href="#arrowhead" transform="translate(0,-500)"/>
+   <use xlink:href="#arrowhead" transform="translate(600,0) rotate(90)"/>
+   <path d="M 0,-500 V 0 H 600"/>
+   <path d="M 95,-20 C 250,-950 350,-50 600,-20" stroke-dasharray="10,5"/>
+   <g stroke-width="5">
+    <path d="M 200,-150 H 445 Q 405,-220 400,-300 H 155 Z"/>
+    <use xlink:href="#arrowhead" transform="translate(270,-300) rotate(-90)"/>
+    <use xlink:href="#arrowhead" transform="translate(320,-150) rotate(90)"/>
+   </g>
+   <use xlink:href="#arrow" transform="translate(450,-170) rotate(-90)"/>
+   <circle cx="240" cy="-440" r="3"/>
+  </g>
+  <g stroke="#cc0000">
+   <path d="M 60,-500 Q 100,-350 155,-300 H 360 Q 400,-250 600,-200"/>
+   <use xlink:href="#arrow" transform="translate(250,-350)"/>
+  </g>
+  <g stroke="#0000ff">
+   <path d="M 20,-500 Q 50,-200 120,-150 H 445 Q 500,-120 600,-110"/>
+   <use xlink:href="#arrow" transform="translate(350,-140)"/>
+  </g>
+  <g fill="#000000">
+   <g font-style="italic">
+    <text x="-25" y="-470">P</text>
+    <text x="585" y="40"  >V</text>
+    <text x="250" y="-450">Critical point</text>
+    <text x="50"  y="-80" >Liquid</text>
+    <text x="300" y="-20" >Liquid + Vapour</text>
+    <text x="550" y="-80" >Vapour</text>
+   </g>
+   <text x="270" y="-260">Condensation</text>
+   <text x="300" y="-170">Evaporation</text>
+   <text x="100" y="-200">Throttling</text>
+   <text x="520" y="-200">Compression</text>
+   <text x="550" y="-160" font-weight="bold">Work in</text>
+  </g>
+  <g fill="#cc0000">
+   <text x="90"  y="-470" font-style="italic"><tspan>T</tspan><tspan dx="-0.3ex" dy="0.6ex">H</tspan></text>
+   <text x="510" y="-240" font-style="italic"><tspan>T</tspan><tspan dx="-0.3ex" dy="0.6ex">H</tspan></text>
+   <text x="250" y="-360" font-weight="bold">Heat out</text>
+  </g>
+  <g fill="#0000ff">
+   <text x="550" y="-130" font-style="italic"><tspan>T</tspan><tspan dx="-0.3ex" dy="0.6ex">C</tspan></text>
+   <text x="40"  y="-470" font-style="italic"><tspan>T</tspan><tspan dx="-0.3ex" dy="0.6ex">C</tspan></text>
+   <text x="350" y="-70"  font-weight="bold">Heat in</text>
+  </g>
+ </g>
+
+</svg>
