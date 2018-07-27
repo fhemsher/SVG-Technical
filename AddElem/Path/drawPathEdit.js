@@ -112,6 +112,7 @@ var PathDeleted = false
 //---fired after frame loaded, via sendSize(), or cancel edit ---
 function editAddPathElem(elemObjEdit)
 {
+
     DrawPathEditId = elemObjEdit.getAttribute("id")//---used in cancel edit--
     PathDeleted = false
     DrawPathEdit = false
@@ -1049,7 +1050,7 @@ function rotatePathAdjust(factor)
             var quantity = +cw.pathEditZoneMarkerQuantitySelect.options[cw.pathEditZoneMarkerQuantitySelect.selectedIndex].text
 
             var seg = (pathEditLen/quantity)
-            for (var k = 0; k<quantity; k++)
+            for (var k = 0; k<ZoneMarkerEditArray.length; k++)
             {
                 direction *= -1;
                 var segLen = k*seg
@@ -1059,6 +1060,7 @@ function rotatePathAdjust(factor)
                 angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
 
                 var marker = ZoneMarkerEditArray[k]
+                 
                 marker.setAttribute("transform", "translate(" + p1.x + "," + p1.y + ")rotate(" + angle + ")");
                 // marker.setAttribute("class",DrawPathEditId)
                 //domElemG.insertBefore(marker,finishedElem)

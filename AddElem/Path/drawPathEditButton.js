@@ -642,7 +642,7 @@ function finishDrawPathEdit()
         var pathEditLen = finishedElem.getTotalLength()
 
         var seg = (pathEditLen/quantity)
-        for (var k = 0; k<quantity; k++)
+        for (var k = 0; k<ZoneMarkerEditArray.length; k++)
         {
             direction *= -1;
             var segLen = k*seg
