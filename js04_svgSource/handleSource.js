@@ -93,10 +93,8 @@ function clearButtonClicked()
         if(bgImageG.childNodes.length>0)bgImageG.removeChild(bgImageG.lastChild)
         inputFileNameToSaveAs.value = ""
         inputFileNameToSaveAs.placeholder = "Include your fileName.svg"
-        processTableDiv.style.visibility = 'hidden'
-        LoadedProcessArray =[]
-        ProcessDoc = null
-        //showSourceSVG()
+
+        
         showSaveSVG()
         enableAllButtons()
 }
