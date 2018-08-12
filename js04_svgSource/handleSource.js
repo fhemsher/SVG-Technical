@@ -126,9 +126,10 @@ function publishSVG()
                 if(id=="domActiveElemG")publishSVG.removeChild(elem)
                 if(id=="componentRect")publishSVG.removeChild(elem)
                 if(id=="schematicRect")publishSVG.removeChild(elem)
+                if(id=="dragDot")publishSVG.removeChild(elem)
                 if(elem.nodeName=="defs")publishSVG.removeChild(elem)
 
-                if(id=="zoomG")
+            if(id=="zoomG")
             {
                 var zooomG = publishSVG.getElementsByTagName("g")[0]
                 zooomG.setAttribute("id", "publishG")
