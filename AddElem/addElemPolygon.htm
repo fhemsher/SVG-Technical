@@ -167,8 +167,8 @@ function writePolygonColorSelection()
         option.style.backgroundColor=myColor
         option.value=myColor
         option.title=name+" "+myColor
-       // if(parent.hexString.indexOf(myColor)!=-1)
-       // option.style.color="white"
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
         option.text=k
         drawPolygonStrokeSelect.appendChild(option)
@@ -178,8 +178,8 @@ function writePolygonColorSelection()
         option.style.backgroundColor=myColor
         option.value=myColor
         option.title=name+" "+myColor
-       // if(parent.hexString.indexOf(myColor)!=-1)
-       // option.style.color="white"
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
         option.text=k
         drawPolygonFillSelect.appendChild(option)
@@ -188,7 +188,7 @@ function writePolygonColorSelection()
 
 
     }
-    drawPolygonStrokeSelect.selectedIndex=1
+    drawPolygonStrokeSelect.selectedIndex=234
     var clr=drawPolygonStrokeSelect.options[drawPolygonStrokeSelect.selectedIndex].value
     drawPolygonStrokeBg.style.backgroundColor=clr
 }

@@ -127,6 +127,8 @@ function writeEllipseColorSelection()
 		option.style.backgroundColor=myColor
 		option.value=myColor
 		option.title=name+" "+myColor
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 		option.text=k
         drawEllipseStrokeSelect.appendChild(option)
@@ -136,6 +138,8 @@ function writeEllipseColorSelection()
 		option.value=myColor
 		option.title=name+" "+myColor
 		option.text=k
+         if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 
 		var option=document.createElement("OPTION")
@@ -150,7 +154,7 @@ function writeEllipseColorSelection()
 
 
 	}
-	drawEllipseStrokeSelect.selectedIndex=44
+	drawEllipseStrokeSelect.selectedIndex=234
 	var clr=drawEllipseStrokeSelect.options[drawEllipseStrokeSelect.selectedIndex].value
 	drawEllipseStrokeBg.style.backgroundColor=clr
 }

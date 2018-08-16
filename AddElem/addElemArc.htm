@@ -155,6 +155,8 @@ function writeArcColorSelection()
 		option.style.backgroundColor=myColor
 		option.value=myColor
 		option.title=name+" "+myColor
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 		option.text=k
         drawArcStrokeSelect.appendChild(option)
@@ -164,6 +166,8 @@ function writeArcColorSelection()
 		option.value=myColor
 		option.title=name+" "+myColor
 		option.text=k
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 
 		var option=document.createElement("OPTION")
@@ -172,13 +176,15 @@ function writeArcColorSelection()
 		option.title=name+" "+myColor
 
 		option.text=k
-        drawArcFillSelect.appendChild(option)
+         if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
+       drawArcFillSelect.appendChild(option)
 
 
 
 
 	}
-	drawArcStrokeSelect.selectedIndex=44
+	drawArcStrokeSelect.selectedIndex=234
 	var clr=drawArcStrokeSelect.options[drawArcStrokeSelect.selectedIndex].value
 	drawArcStrokeBg.style.backgroundColor=clr
 }

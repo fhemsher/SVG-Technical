@@ -159,6 +159,8 @@ function writeGraphColorSelection()
 		option.style.backgroundColor=myColor
 		option.value=myColor
 		option.title=name+" "+myColor
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 		option.text=k
         drawGraphStrokeSelect.appendChild(option)
@@ -174,6 +176,8 @@ function writeGraphColorSelection()
 		option.style.backgroundColor=myColor
 		option.value=myColor
 		option.title=name+" "+myColor
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 		option.text=k
         drawGraphFillSelect.appendChild(option)
@@ -182,7 +186,7 @@ function writeGraphColorSelection()
 
 
 	}
-	drawGraphStrokeSelect.selectedIndex=44
+	drawGraphStrokeSelect.selectedIndex=234
 	var clr=drawGraphStrokeSelect.options[drawGraphStrokeSelect.selectedIndex].value
 	drawGraphStrokeBg.style.backgroundColor=clr
 }

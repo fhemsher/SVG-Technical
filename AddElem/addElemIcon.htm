@@ -168,6 +168,8 @@ function writeIconColorSelection()
 		option.style.backgroundColor=myColor
 		option.value=myColor
 		option.title=name+" "+myColor
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 		option.text=k+1
 		drawIconFillColorSelect.appendChild(option)
@@ -181,7 +183,7 @@ function writeIconColorSelection()
         drawIconStrokeColorSelect.appendChild(option)
         */
 	}
-	drawIconFillColorSelect.selectedIndex=40
+	drawIconFillColorSelect.selectedIndex=234
   //	drawIconStrokeColorSelect.selectedIndex=23
 	var clr=drawIconFillColorSelect.options[drawIconFillColorSelect.selectedIndex].value
 	drawIconFillBg.style.backgroundColor=clr

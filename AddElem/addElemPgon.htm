@@ -186,9 +186,9 @@ function selectNative(myId)
 		myDiv.style.borderWidth=""
 		myDiv.style.borderStyle=""
 		myDiv.style.borderColor=""
-		symbolRegisterColor1Select.selectedIndex=143//--black---
-		symbolRegisterColor2Select.selectedIndex=117//--white---
-		symbolRegisterColor3Select.selectedIndex=143//--black---
+		symbolRegisterColor1Select.selectedIndex=1//--black---
+		symbolRegisterColor2Select.selectedIndex=2//--white---
+		symbolRegisterColor3Select.selectedIndex=1//--black---
 		symbolRegisterColor1Select.disabled=true
 		symbolRegisterColor2Select.disabled=true
 		symbolRegisterColor3Select.disabled=true
@@ -341,9 +341,9 @@ function registerSymbol()
 		myDiv.style.borderWidth=""
 		myDiv.style.borderStyle=""
 		myDiv.style.borderColor=""
-		symbolRegisterColor1Select.selectedIndex=143
-		symbolRegisterColor2Select.selectedIndex=117
-		symbolRegisterColor3Select.selectedIndex=143
+		symbolRegisterColor1Select.selectedIndex=1
+		symbolRegisterColor2Select.selectedIndex=2
+		symbolRegisterColor3Select.selectedIndex=1
 		symbolRegisterColor1Select.disabled=true
 		symbolRegisterColor2Select.disabled=true
 		symbolRegisterColor3Select.disabled=true
@@ -640,8 +640,8 @@ function buildSymbolColorSelection()
 		option.style.backgroundColor=myColor
 		option.value=myColor
 		option.title=name+" "+myColor
-       // if(parent.hexString.indexOf(myColor)!=-1)
-        //option.style.color="white"
+        if(parent.hexString.indexOf(myColor)!=-1)
+         option.style.color="white"
 
 		option.text=k
 		symbolRegisterColor1Select.appendChild(option)
@@ -651,8 +651,8 @@ function buildSymbolColorSelection()
 		option.value=myColor
 		option.title=name+" "+myColor
 		option.text=k
-        //if(parent.hexString.indexOf(myColor)!=-1)
-       // option.style.color="white"
+         if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 		symbolRegisterColor2Select.appendChild(option)
 
 		var option=document.createElement("OPTION")
@@ -660,14 +660,14 @@ function buildSymbolColorSelection()
 		option.value=myColor
 		option.title=name+" "+myColor
 		option.text=k
-       // if(parent.hexString.indexOf(myColor)!=-1)
-       // option.style.color="white"
+        if(parent.hexString.indexOf(myColor)!=-1)
+       option.style.color="white"
 		symbolRegisterColor3Select.appendChild(option)
 	}
 
-    	symbolRegisterColor1Select.selectedIndex=143//--black---
-		symbolRegisterColor2Select.selectedIndex=117//--white---
-		symbolRegisterColor3Select.selectedIndex=143//--black---
+    	symbolRegisterColor1Select.selectedIndex=1//--black---
+		symbolRegisterColor2Select.selectedIndex=2//--white---
+		symbolRegisterColor3Select.selectedIndex=1//--black---
 }
 
 function sendSize()

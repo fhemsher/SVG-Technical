@@ -1139,8 +1139,8 @@ function writeTextColorSelection()
 		option.style.backgroundColor=myColor
 		option.value=myColor
 		option.title=name+" "+myColor
-       // if(parent.hexString.indexOf(myColor)!=-1)
-       // option.style.color="white"
+        if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 		option.text=k
          drawTextStrokeSelect.appendChild(option)
@@ -1149,13 +1149,13 @@ function writeTextColorSelection()
 		option.style.backgroundColor=myColor
 		option.value=myColor
 		option.title=name+" "+myColor
-       // if(parent.hexString.indexOf(myColor)!=-1)
-        //option.style.color="white"
+         if(parent.hexString.indexOf(myColor)!=-1)
+        option.style.color="white"
 
 		option.text=k
         drawTextFillSelect.appendChild(option)
 	}
-	drawTextFillSelect.selectedIndex=143
+	drawTextFillSelect.selectedIndex=1
 	var clr=drawTextFillSelect.options[drawTextFillSelect.selectedIndex].value
 	drawTextFillBg.style.backgroundColor=clr
 }
