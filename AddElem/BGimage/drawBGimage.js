@@ -1,35 +1,39 @@
+
 var ActiveBGimage
 function placeDrawBGimage()
 {
 
     if(bgImageG.childNodes.length>0)
-        bgImageG.removeChild(bgImageG.childNodes[0])
+         bgImageG.removeChild(bgImageG.childNodes[0])
 
-        var cw = addElemBGimageCw
-        coverOn()
 
-        var opacity = cw.drawBGimageOpacitySelect.options[cw.drawBGimageOpacitySelect.selectedIndex].text
+    var cw = addElemBGimageCw
+    coverOn()
 
-        ActiveElem = ActiveElemG.append("g")
-        .attr("id", "activeElem")
-        .attr("class", "dragTargetObj")
-        .attr("pointer-events", null)
+    var opacity = cw.drawBGimageOpacitySelect.options[cw.drawBGimageOpacitySelect.selectedIndex].text
 
-        ActiveBGimage = ActiveElem.append("image")
-        .attr("id", "activeBGimage")
-        .style("cursor", "move")
 
-        .attr("opacity", opacity)
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("height", 200)
+    ActiveElem = ActiveElemG.append("g")
+    .attr("id", "activeElem")
+    .attr("class", "dragTargetObj")
+   .attr("pointer-events", null)
 
-        //---place dragDot in g---
-        activeElem = document.getElementById("activeElem")
-        activeElem.appendChild(dragDot)
-        DragDot.style("visibility", "visible")
+    ActiveBGimage = ActiveElem.append("image")
+    .attr("id", "activeBGimage")
+    .style("cursor", "move")
+
+    .attr("opacity", opacity)
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("height", 200)
+
+    //---place dragDot in g---
+    activeElem = document.getElementById("activeElem")
+    activeElem.appendChild(dragDot)
+      DragDot.style("visibility", "visible")
 
         BGimageCorner =[0, 0]
+
 
         mySVG.removeAttribute('onclick')
 
@@ -42,46 +46,49 @@ function placeDrawBGimage()
 
 }
 
-function loadImageFile()
-{
 
-    var cw = addElemBGimageCw
 
-    var file = cw.document.querySelector('input[type=file]').files[0];
-    var reader = new FileReader();
+ function loadBGImageFile() {
+
+    var cw=addElemBGimageCw
+
+    var file    = cw.document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
     reader.addEventListener("load", function ()
-        {
-
-            placeDrawBGimage()
-
-            activeBGimage.setAttribute("href", reader.result)
-            activeBGimage.onload = function()
-            {
-                var bb = activeBGimage.getBBox()
-                cw.bgImageWidthValue.value = bb.width.toFixed(0)
-                cw.bgImageHeightValue.value = bb.height.toFixed(0)
-                activeBGimage.setAttribute("width", bb.width)
-                activeBGimage.setAttribute("height", bb.height)
-                DragDot.attr("transform", "translate("+(bb.width)+" "+(bb.height)+")")
-                DragDot.attr("cx", null)
-                cw.editTemplateCheck.checked = false
-                cw.editTemplateCheckDiv.style.visibility = "hidden"
-                EditBGimage = false
-                DrawBGimage = false
-                BGimageDeleted = false
-                DrawBGimageEditId = null
-
-            };
-
-        }
-        , false);
-
-    if (file)
     {
-        reader.readAsDataURL(file);
 
-    }
+        placeDrawBGimage()
+
+        activeBGimage.setAttribute("href",reader.result)
+        activeBGimage.onload = function()
+        {
+            var bb=activeBGimage.getBBox()
+            cw.bgImageWidthValue.value =bb.width.toFixed(0)
+            cw.bgImageHeightValue.value =bb.height.toFixed(0)
+            activeBGimage.setAttribute("width",bb.width)
+            activeBGimage.setAttribute("height",bb.height)
+            DragDot.attr("transform", "translate("+(bb.width)+" "+(bb.height)+")")
+            DragDot.attr("cx", null)
+             cw.editTemplateCheck.checked=false
+            cw.editTemplateCheckDiv.style.visibility="hidden"
+           EditBGimage = false
+            DrawBGimage = false
+            BGimageDeleted = false
+            DrawBGimageEditId=null
+
+        };
+
+
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+
+  }
 }
+
+
+
 
 ///---X button and iframe close all---
 function closeDrawBGimage()
@@ -127,6 +134,7 @@ function closeDrawBGimage()
 
             var cw = addElemBGimageCw
 
+
             cw.drawBGimageFinishButton.disabled = true
             cw.drawBGimageCancelButton.disabled = true
             cw.drawBGimageDeleteButton.style.visibility = "hidden"
@@ -139,6 +147,7 @@ function closeDrawBGimage()
 
             cw.adjustedRotateBGimageValue.value = 0
 
+
     }
 }
 
@@ -149,7 +158,7 @@ function trackDrawBGimage()
     if(ActiveElem==null&&EditBGimage==false && BGimageDeleted==false)
     {
         //DrawX.style("display", "inline")
-        // DrawX.attr("transform", "translate("+SVGx+" "+SVGy+")")
+       // DrawX.attr("transform", "translate("+SVGx+" "+SVGy+")")
 
     }
 }
@@ -163,7 +172,7 @@ var ActiveBGimage
 function startBGimageDraw()
 {
     RotateAngle = 0
-    // elemSizeDiv.innerHTML = "w = <input id=drawBGimageWidthValue type='text' style='width:30px;border=0' /> h = <input id=drawBGimageHeightValue type='text' style='width:30px;border=0' />"
+   // elemSizeDiv.innerHTML = "w = <input id=drawBGimageWidthValue type='text' style='width:30px;border=0' /> h = <input id=drawBGimageHeightValue type='text' style='width:30px;border=0' />"
 
     var cw = addElemBGimageCw
     if(EditBGimage==false)
@@ -178,13 +187,15 @@ function startBGimageDraw()
 
     if(cw.adjustedRotateBGimageValue)
         cw.adjustedRotateBGimageValue.value = 0
-        cw.bgImgFile.value = ""
-        cw.bgImageWidthValue.value = ""
-        cw.bgImageHeightValue.value = ""
+      cw.bgImgFile.value=""
+      cw.bgImageWidthValue.value=""
+      cw.bgImageHeightValue.value=""
+
 
 }
 
 //--click on svg---
+
 
 function finishDrawBGimage()
 {
@@ -202,17 +213,17 @@ function finishDrawBGimage()
             finishedElem.setAttribute("id", DrawBGimageEditId)
 
             if(activeElem.getAttribute("transform"))
-                finishedElem.setAttribute("transform", activeElem.getAttribute("transform"))
+            finishedElem.setAttribute("transform", activeElem.getAttribute("transform"))
 
-                var ctm = finishedElem.getCTM()
-                RAD2DEG = 180 / Math.PI;
+            var ctm = finishedElem.getCTM()
+            RAD2DEG = 180 / Math.PI;
             var rotateAngle = Math.atan2(ctm.b, ctm.a) * RAD2DEG;
             finishedElem.setAttribute("rotateAngle", rotateAngle)
 
             finishedElem.setAttribute("class", "addElem")
             finishedElem.style.cursor = "default"
 
-            //   finishedElem.setAttribute("onmousedown", "editBGimageDraw("+BGImageID+",evt)")
+         //   finishedElem.setAttribute("onmousedown", "editBGimageDraw("+BGImageID+",evt)")
 
             DrawX.style("display", "none")
             DragDot.style("visibility", "hidden")
@@ -230,7 +241,7 @@ function finishDrawBGimage()
             closeDrawBGimage()
         }
 
-        addElemBGimageCw.editTemplateCheck.checked = false
+        addElemBGimageCw.editTemplateCheck.checked=false
 }
 
 function cancelDrawBGimage()
@@ -256,12 +267,12 @@ function cancelDrawBGimage()
             cw.drawBGimageCancelButton.disabled = true
             cw.adjustedRotateBGimageValue.value = 0
             coverOff()
-            cw.bgImgFile.value = ""
-            cw.bgImageWidthValue.value = ""
-            cw.bgImageHeightValue.value = ""
+            cw.bgImgFile.value=""
+              cw.bgImageWidthValue.value=""
+              cw.bgImageHeightValue.value=""
 
         }
-        addElemBGimageCw.editTemplateCheck.checked = false
+    addElemBGimageCw.editTemplateCheck.checked=false
 }
 
 //====================edit/update rect===============================
@@ -279,7 +290,7 @@ function setEditBGimage()
     var cw = addElemBGimageCw
     var elemObjEdit = document.getElementById(DrawBGimageEditId)
 
-    EditBGimage = true
+    EditBGimage=true
 
     ActiveElem = ActiveElemG.append("g")
     .attr("id", "activeElem")
@@ -308,6 +319,8 @@ function setEditBGimage()
 
         elemObjEdit.style.visibility = "hidden"
 
+
+
         //  domActiveElemG.appendChild(EditBGimageObj)
         ActiveElem = d3.select("#activeElem")
         activeElem = document.getElementById("activeElem")
@@ -315,25 +328,29 @@ function setEditBGimage()
         cw.drawBGimageCancelButton.disabled = false
         cw.drawBGimageFinishButton.disabled = false
 
-        cw.drawBGimageDeleteButton.style.visibility = "visible"
+           cw.drawBGimageDeleteButton.style.visibility="visible"
 
-        var opacity = EditBGimageObj.getAttribute("opacity")
 
-        cw.drawBGimageEditSpan.innerHTML = "Edit Background Template"
-        cw.drawBGimageTopTable.style.backgroundColor = "orange"
+                var opacity = EditBGimageObj.getAttribute("opacity")
 
-        cw.containerDiv.style.backgroundColor = "orange"
-        DrawX.attr("stroke", "darkorange")
-        DrawX.style("display", "inline")
-        DrawX.attr("transform", ActiveElem.attr("transform"))
 
-        //--place dragDot----
-        var width = parseFloat(ActiveBGimage.attr("width"))
-        var height = parseFloat(ActiveBGimage.attr("height"))
 
-        DragDot.attr("transform", "translate("+(width)+" "+(height)+")")
 
-        setBGimageEditDrag()
+            cw.drawBGimageEditSpan.innerHTML = "Edit Background Template"
+            cw.drawBGimageTopTable.style.backgroundColor = "orange"
+
+            cw.containerDiv.style.backgroundColor = "orange"
+            DrawX.attr("stroke", "darkorange")
+            DrawX.style("display", "inline")
+            DrawX.attr("transform", ActiveElem.attr("transform"))
+
+            //--place dragDot----
+            var width = parseFloat(ActiveBGimage.attr("width"))
+            var height = parseFloat(ActiveBGimage.attr("height"))
+
+            DragDot.attr("transform", "translate("+(width)+" "+(height)+")")
+
+            setBGimageEditDrag()
 
 }
 
@@ -363,26 +380,27 @@ function finishEditBGimage()
         finishedElem.setAttribute("height", ActiveBGimage.attr("height"))
         finishedElem.setAttribute("class", "addElem")
 
-        finishedElem.setAttribute("opacity", ActiveBGimage.attr("opacity"))
+     finishedElem.setAttribute("opacity", ActiveBGimage.attr("opacity"))
 
-        finishedElem.setAttribute("rotateAngle", RotateAngle)
 
-        domActiveElemG.appendChild(dragDot)
-        domActiveElemG.removeChild(document.getElementById("activeElem"))
-        ActiveElem = null
-        activeElem = null
-        finishedElem.style.cursor = "default"
-        finishedElem.style.visibility = ""
-        //---is this a timelined elem---
+            finishedElem.setAttribute("rotateAngle", RotateAngle)
 
-        // finishedElem.setAttribute("onmousedown", "editBGimageDraw("+DrawBGimageEditId+",evt)")
-        finishedElem.setAttribute("id", DrawBGimageEditId)
-        UpdateThisBGimage = finishedElem
-        //updateBGimage()
-        //domAddElemG.insertBefore(finishedElem, EditThisBGimage)
-        //domAddElemG.removeChild(EditThisBGimage)
+            domActiveElemG.appendChild(dragDot)
+            domActiveElemG.removeChild(document.getElementById("activeElem"))
+            ActiveElem = null
+            activeElem = null
+            finishedElem.style.cursor = "default"
+            finishedElem.style.visibility = ""
+            //---is this a timelined elem---
 
-        EditBGimage = false
+           // finishedElem.setAttribute("onmousedown", "editBGimageDraw("+DrawBGimageEditId+",evt)")
+            finishedElem.setAttribute("id", DrawBGimageEditId)
+            UpdateThisBGimage = finishedElem
+            //updateBGimage()
+            //domAddElemG.insertBefore(finishedElem, EditThisBGimage)
+            //domAddElemG.removeChild(EditThisBGimage)
+
+            EditBGimage = false
 
     }
     closeDrawBGimage()
@@ -407,6 +425,7 @@ function resetEditBGimage()
     cw.drawBGimageFinishButton.disabled = false
     DrawBGimage = true
 
+
     //---click to add more circles for this session---
 
 }
@@ -414,8 +433,8 @@ function resetEditBGimage()
 function cancelEditBGimage()
 {
 
-    closeDrawBGimage()
-    /*
+ closeDrawBGimage()
+ /*
        var cw = addElemBGimageCw
     //---return to previous settings
     var elemObjEdit = document.getElementById(DrawBGimageEditId)
@@ -433,6 +452,7 @@ function cancelEditBGimage()
     */
 }
 
+
 //=======================delete rect==================
 var BGimageDeleted = false
 //---button---
@@ -445,12 +465,12 @@ function removeCurrentDrawBGimage()
     var elemObjEdit = document.getElementById(DrawBGimageEditId)
     bgImageG.removeChild(elemObjEdit)
     BGimageDeleted = true
-    cw.editTemplateCheck.checked = false
-    cw.editTemplateCheckDiv.style.visibility = "hidden"
-    EditBGimage = false
-    DrawBGimage = false
+       cw.editTemplateCheck.checked=false
+            cw.editTemplateCheckDiv.style.visibility="hidden"
+           EditBGimage = false
+            DrawBGimage = false
 
-    DrawBGimageEditId = null
+            DrawBGimageEditId=null
     closeDrawBGimage()
 
 }
