@@ -269,7 +269,6 @@ function cancelDrawSymbol()
             coverOff()
 
         }
-        commentDiv.style.visibility = "hidden"
 
         cw.drawSymbolCancelButton.style.borderColor = ""
 
@@ -400,7 +399,7 @@ function setEditSymbol()
         var transY = matrix.f
         DrawX.attr("transform", "translate("+transX+" "+transY+")")
 
-            
+
             ActiveElem.style("cursor", "move")
             DrawX.attr("stroke", "darkorange")
             DrawX.style("display", "inline")
@@ -466,7 +465,6 @@ function resetEditSymbol()
     cw.drawSymbolTopTable.style.backgroundColor = "honeydew"
     ActiveElem = null
     activeElem = null
-    starG.appendChild(dragDot) //--place drag dot on top---
     DrawX.style("display", "none")
     DrawX.attr("stroke", "honeydew")
     DragDot.style("visibility", "hidden")
@@ -489,9 +487,7 @@ function cancelEditSymbol()
     elemObjEdit.style.display = "inline"
     domActiveElemG.removeChild(document.getElementById("activeElem"))
     activeElem = null
-    commentDiv.style.visibility = "hidden"
     ActiveElem = null
-    starG.appendChild(dragDot) //--place drag dot on top---
     closeDrawSymbol()
     //setEditSymbol()
 
