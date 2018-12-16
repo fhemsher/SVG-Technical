@@ -101,9 +101,9 @@ onmousedown="return false;"
 	<script charset="UTF-8" type="text/javascript" src="AddElem/Path/pathEditZoneMarker.js"></script>
 	<script charset="UTF-8" type="text/javascript" src="js03_drag/dragPathPointEdit.js"></script>
 	<script charset="UTF-8" type="text/javascript" src="js03_drag/dragPathEdit.js"></script>
-<div id=addElemPgonFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemPgonFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
-	<script charset="UTF-8" type="text/javascript" src="AddElem/Pgon/drawPgon.js"></script>
-	<script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjPgon.js"></script>
+<div id=addElemSymbolFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemSymbolFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Symbol/drawSymbol.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjSymbol.js"></script>
 
 <div id=addElemTextureFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemTextureFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
 	<script charset="UTF-8" type="text/javascript" src="AddElem/Texture/drawTexture.js"></script>
@@ -198,6 +198,7 @@ stroke-width: 0;
         <td><nobr>Publish SVG As:</nobr></td>
         <td><input id="inputPublishFileNameToSaveAs" placeholder="Include your fileName.svg"></input></td>
         <td><button Title="Save current drawing to your computer" onclick="publishSvgAsFile()">send</button></td>
+        <td><button style='background:lightgreen' Title="Publish: Mobile-Friendly" onclick="openMobileHelp()">Mobile</button></td>
         <td><button id=closePublishDivButton style='visibility:hidden' title="Close" onclick=closePublishDiv()>Close</button></td>
     </tr>
  </table>
@@ -218,7 +219,7 @@ stroke-width: 0;
 
 
 <p></p>
- <div style='width:100%;text-align:right' >Download SVG-Technical .zip file <a href="javascript:downloadSite()" >SVG-Technical.com Files</a></div>
+ <div style='width:100%;text-align:right' >Download SVG-Technical .zip file <a href="https://github.com/fhemsher/SVG-Technical"  target="_blank">SVG-Technical.com Files</a></div>
 
 <div id=emDiv style='width:100%;text-align:right' ></div><p></p>
 
@@ -350,9 +351,11 @@ You may adjust the size of the chart via the Scale slider.
             <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddPathButton  style=background-color:linen onClick=openAddPathDraw()>Paths</button>
             <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddArcButton  style=background-color:linen onClick=openAddArcDraw()>Arcs</button>
             <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddPolygonButton  style=background-color:linen onClick=openAddPolygonDraw()>Polygons</button>
-            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddPgonButton  style=background-color:linen onClick=openAddPgonDraw()>Symbols</button>
             <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddIconButton  style=background-color:linen onClick=openAddIconDraw()>Icons</button>
             <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddImageButton title="Add image from your computer" style=background-color:linen onClick=openAddImageDraw()>Images</button>
+            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddSymbolButton  style=background-color:#538BBA;color:white onClick=openAddSymbolDraw()>Symbols</button>
+
+
              &nbsp;&nbsp;<button title="Add pattern/texture fill to elements" onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddTextureButton  style=background-color:linen onClick=openAddTexture()><i>Textures</i></button>
             <button title="Add Gradients" onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddGradientButton  style=background-color:linen onClick=openAddGradient()><i>Gradients</i></button>
              &nbsp;&nbsp;
@@ -458,12 +461,46 @@ send a segment of your SVG drawing as a schematic to the library for use by othe
 <button title="Close Schematic Library" id=schematicTableCloseButton onmouseover=this.style.background="red"  onmouseout=this.style.background=""  style='visibility:hidden;position:fixed;top:70px;left:345px' onclick=closeSchematicTable() >X</button>
 
 </div>
+<div id=publishMobileDiv style='background:lightgreen;visibility:hidden;position:fixed;top:80px;left:40%;width:400px;height:1px;border:1px solid blue;border-radius:5px;padding:10px;overflow:hidden'>
+    <table style=width:100%><td style=width:90%; align=center><h7><b>Publish SVG Drawing: Mobile-Friendly</b></h7></td><td align=right><button onclick=closeMobileHelp()>X</button></td></table>
+    <div style=text-align:justify>
+    Excellent mobile-friendly interactive SVG zoom/pan<br>
+   The following is the typical HTML source at your website's web page to publish your drawing for mobile units.
+   <center>Copy (Ctrl-C) the below:</center>
+   <textarea style='width:400px;height:400px;font-size:80%;'>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Zoom SVG Drawing using Leaflet</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+</head>
+<body onload=init() style='padding:0px;font-family:arial'>
+<div style=position:absolute;top:0px;left:0px id="MyDrawing" ></div>
+<script id=myScript>
+var MyDrawing = L.map('MyDrawing', {
+    crs: L.CRS.Simple,
+    zoomControl:false //--remove +- buttons---
+});
+function init()
+{
+    var myDiv=document.getElementsByTagName("div")[0]
+    myDiv.style.width=window.innerWidth+"px"
+    myDiv.style.height=window.innerHeight+"px"
+    var bounds = [[0,0], [window.innerWidth,window.innerHeight]];
+    var image = L.imageOverlay('mySVGFile.svg', bounds).addTo(MyDrawing);
+    MyDrawing.fitBounds(bounds);
+}
+</script>
+</body>
+</html>
+   </textarea>
 
 
-
-
-
-
+    </div>
+</div>
 
 <div style='position:fixed;top:5px;left:95%'><button onClick=zoomDrawing() title="Mousewheel Zoom Drawing" id=zoomButton style='background:transparent;border:0px;width:30px;height:30px;padding:0px'><img src="Images/zoomButton.png" width=25 height=25 alt="SVG HMI Zoom SCADA Graphs"   /></button> <button onClick=openZoomHelp() style=width:20px;height:20px;padding:0px;border:0px;background:transparent ><img src="Images/help.png"  width=20 height=20 alt="Zoom Scada Drawing"   /></button>   </div>
 
@@ -480,6 +517,48 @@ send a segment of your SVG drawing as a schematic to the library for use by othe
       <img align=left src="Images/zoomRedButton.png" alt="" width="25" height="25" />
     </div>
 </div>
+<div id=publishMobileDiv style='background:lightgreen;visibility:hidden;position:fixed;top:80px;left:40%;width:400px;height:1px;border:1px solid blue;border-radius:5px;padding:10px;overflow:hidden'>
+    <table style=width:100%><td style=width:90%; align=center><h7><b>Publish SVG Drawing: Mobile-Friendly</b></h7></td><td align=right><button onclick=closeMobileHelp()>X</button></td></table>
+    <div style=text-align:justify>
+    Excellent mobile-friendly interactive SVG zoom/pan<br>
+   The following is the typical HTML source at your website's web page to publish your drawing for mobile units.
+   <center>Copy (Ctrl-C) the below:</center>
+   <textarea style='width:400px;height:400px;font-size:80%;'>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Zoom SVG Drawing using Leaflet</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+</head>
+<body onload=init() style='padding:0px;font-family:arial'>
+<div style=position:absolute;top:0px;left:0px id="MyDrawing" ></div>
+<script id=myScript>
+var MyDrawing = L.map('MyDrawing', {
+    crs: L.CRS.Simple,
+    zoomControl:false //--remove +- buttons---
+});
+function init()
+{
+    var myDiv=document.getElementsByTagName("div")[0]
+    myDiv.style.width=window.innerWidth+"px"
+    myDiv.style.height=window.innerHeight+"px"
+    var bounds = [[0,0], [window.innerWidth,window.innerHeight]];
+    var image = L.imageOverlay('mySVGFile.svg', bounds).addTo(MyDrawing);
+    MyDrawing.fitBounds(bounds);
+}
+</script>
+</body>
+</html>
+   </textarea>
+
+
+    </div>
+</div>
+
+
 </body>
 <script>
 document.addEventListener("onload",init(),false)
@@ -574,23 +653,23 @@ function writeEM()
     em+="gm"
     em+="ail."
     em+="com"
-   emDiv.innerHTML=em +" &nbsp;&nbsp;<span style=color:maroon>Last Update: 8/07/2018</span>"
+   emDiv.innerHTML=em +" &nbsp;&nbsp;<span style=color:maroon>Last Update: 12/16/2018</span>"
 
 }
-function downloadSite()
+
+function openMobileHelp()
 {
-
-var zip_file_path = "SiteZip/SVG-Technical.zip"
-var zip_file_name = "SVG-TechnicalSite"
-var a = document.createElement("a");
-document.body.appendChild(a);
-a.style = "display: none";
-a.href = zip_file_path;
-a.download = zip_file_name;
-a.click();
-document.body.removeChild(a);
-
+	var height=publishMobileDiv.scrollHeight
+	d3.select("#publishMobileDiv").transition().duration(500).style("height", height+"px")
+	publishMobileDiv.style.visibility="visible"
 }
+function closeMobileHelp()
+{
+	var height=1
+	d3.select("#publishMobileDiv").transition().duration(500).style("height", height+"px")
+	setTimeout('publishMobileDiv.style.visibility="hidden"',600)
+}
+
 
 
 </script>
