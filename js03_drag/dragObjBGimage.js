@@ -63,7 +63,7 @@ function startDragBGimage(evt)
 
             if(objDragTarget.getAttribute("id")=="imgDragArrow")
             {
-                    var cw = addElemBGimageCw
+                    var cw = addElemBGImageCw
                 var w = +activeBGimage.getAttribute("width")
                 var h = +activeBGimage.getAttribute("height")
                 cw.bgImageWidthValue.value = w.toFixed(0)
